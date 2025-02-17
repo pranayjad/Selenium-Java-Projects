@@ -6,14 +6,14 @@ import org.testng.annotations.Test;
 import practice.TestComponents.BaseTest;
 import practice.pageobjects.*;
 
-import java.io.IOException;
 import java.util.List;
 
 public class SubmitOrderTest extends BaseTest {
+
+    String prod="ZARA COAT 3";
     @Test
     public void submitOrder() throws InterruptedException {
 
-        String prod="ZARA COAT 3";
         String country="india";
 
         ProductCatalogue productCatalogue= landingPage.loginApplication("ppj@gmail.com","zaq1@WSX");
@@ -33,5 +33,13 @@ public class SubmitOrderTest extends BaseTest {
         Assert.assertTrue(confirmMsg.equalsIgnoreCase("Thankyou for the order."));
 
         Thread.sleep(2000L);
+    }
+
+    @Test(dependsOnMethods = {"submitOrder"})
+    public void verifyOrder()
+    {
+        ProductCatalogue productCatalogue= landingPage.loginApplication("ppj@gmail.com","zaq1@WSX");
+        OrderPage orderPage=productCatalogue.goToOrderPage();
+        Assert.assertTrue(orderPage.orderProductCheck(prod));
     }
 }

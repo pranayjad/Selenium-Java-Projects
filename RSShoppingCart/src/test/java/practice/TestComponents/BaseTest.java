@@ -4,8 +4,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import practice.pageobjects.LandingPage;
 
 import java.io.FileInputStream;
@@ -43,7 +43,7 @@ public class BaseTest {
         return driver;
     }
 
-    @BeforeTest
+    @BeforeMethod(alwaysRun = true)
     public LandingPage launchApplication() throws IOException {
         driver = initializeDriver();
         landingPage=new LandingPage(driver);
@@ -51,7 +51,7 @@ public class BaseTest {
         return landingPage;
     }
 
-    @AfterTest
+    @AfterMethod(alwaysRun = true)
     public void tearDown()
     {
         driver.quit();

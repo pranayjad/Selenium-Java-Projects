@@ -4,10 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import practice.TestComponents.BaseTest;
 
-import java.io.IOException;
-
 public class ErrorValidation extends BaseTest {
-    @Test
+    @Test(groups = {"ErrorHandling"})
     public void submitOrder() throws InterruptedException {
 
         landingPage.loginApplication("pp@gmail.com","zaq1@WSX");
