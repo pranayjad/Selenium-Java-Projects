@@ -43,9 +43,9 @@ public class AbstractComponent {
         wait.until(ExpectedConditions.invisibilityOf(ele));
     }
 
-    public CartPage goToCartPage()
-    {
+    public CartPage goToCartPage() throws InterruptedException {
         cart.click();
+        Thread.sleep(1000L);
         return new CartPage(driver);
     }
 
