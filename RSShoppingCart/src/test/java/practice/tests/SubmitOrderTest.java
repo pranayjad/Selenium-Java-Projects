@@ -1,8 +1,5 @@
 package practice.tests;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -10,7 +7,6 @@ import org.testng.annotations.Test;
 import practice.TestComponents.BaseTest;
 import practice.pageobjects.*;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -70,11 +66,5 @@ public class SubmitOrderTest extends BaseTest {
 
         //List<HashMap<String,String>> mapData = getJsonDataToMap(System.getProperty("user.dir")+"//src//test//java//practice//data//PurchaseOrder.json");
         return new Object [][] {{mapData.get(0)},{mapData.get(1)}};
-    }
-
-    public void getScreenshot(String testCaseName) throws IOException {
-       TakesScreenshot ts = (TakesScreenshot)driver;
-       File sourceFile = ts.getScreenshotAs(OutputType.FILE);
-       FileUtils.copyFile(sourceFile,new File(System.getProperty("user.dir")+"//reports//"+testCaseName+".png"));
     }
 }

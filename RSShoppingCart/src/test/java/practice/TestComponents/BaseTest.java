@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -72,5 +74,12 @@ public class BaseTest {
         ObjectMapper mapper = new ObjectMapper();
         List<HashMap<String,String>> data = mapper.readValue(jsonContent,new TypeReference<List<HashMap<String,String>>>(){});
         return data;
+    }
+
+    public String getScreenshot(String testCaseName, WebDriver driver) throws IOException {
+        TakesScreenshot ts = (TakesScreenshot)driver;
+        File sourceFile = ts.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(sourceFile,new File(System.getProperty("user.dir")+"//reports//"+testCaseName+".png"));
+        return System.getProperty("user.dir")+"//reports//"+testCaseName+".png";
     }
 }
