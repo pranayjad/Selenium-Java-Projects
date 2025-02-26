@@ -10,7 +10,7 @@ public class ErrorValidation extends BaseTest {
     public void loginErrorValidation() throws InterruptedException {
 
         landingPage.loginApplication("pp@gmail.com","zaq1@WSX");
-        Assert.assertEquals("Incorrect email aor password.",landingPage.getErrorMsg());
+        Assert.assertEquals("Incorrect email or password.",landingPage.getErrorMsg());
 
         Thread.sleep(2000L);
     }
