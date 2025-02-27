@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>template</groupId>
-  <artifactId>Selenium_TestNG_Template</artifactId>
+  <artifactId>Selenium_TestNG_Cucumber_Template</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -59,11 +59,23 @@
       <artifactId>extentreports</artifactId>
       <version>5.1.2</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>7.21.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-testng</artifactId>
+      <version>7.21.1</version>
+    </dependency>
   </dependencies>
   <!-- maven testNG integration, profiles for each testsuite xml -->
   <profiles>
     <profile>
-      <id>Regression</id>
+      <id>CucumberTests</id>
       <build>
         <pluginManagement>
           <plugins>
@@ -72,9 +84,9 @@
               <artifactId>maven-surefire-plugin</artifactId>
               <version>3.5.2</version>
               <configuration>
-                <suiteXmlFiles>
-                  <suiteXmlFile>testSuites/testng.xml</suiteXmlFile>
-                </suiteXmlFiles>
+                <includes>
+                  <include>**/TestNGTestRunner.java</include>
+                </includes>
               </configuration>
             </plugin>
           </plugins>
