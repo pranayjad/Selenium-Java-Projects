@@ -60,7 +60,6 @@
       <version>5.1.2</version>
     </dependency>
   </dependencies>
-
   <!-- maven testNG integration, profiles for each testsuite xml -->
   <profiles>
     <profile>
