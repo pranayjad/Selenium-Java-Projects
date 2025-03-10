@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="End to end testing">
+    <listeners>
+        <listener class-name="com.parabank.testComponents.Listeners"/>
+    </listeners>
+    <test name="Registration and open account">
+        <groups>
+            <run>
+                <exclude name="NegativeScenario"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.parabank.tests.RegistrationAccountOpenTest"/>
+        </classes>
+    </test>
+    <test name="Login Validation">
+        <groups>
+            <run>
+                <!--<include name="HappyPath"></include>-->
+            </run>
+        </groups>
+        <classes>
+            <class name="com.parabank.tests.LoginValidation"/>
+        </classes>
+    </test>
+    <test name="Account Summary">
+        <classes>
+            <class name="com.parabank.tests.AccountSummaryTest"/>
+        </classes>
+    </test>
+</suite>
