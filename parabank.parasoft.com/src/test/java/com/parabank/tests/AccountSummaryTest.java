@@ -1,6 +1,7 @@
 package com.parabank.tests;
 
 import com.parabank.pageobjects.AccountOverviewPage;
+import com.parabank.pageobjects.TransferFundPage;
 import com.parabank.testComponents.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -12,17 +13,29 @@ import java.util.List;
 
 public class AccountSummaryTest extends BaseTest {
 
-    @Test (dataProvider = "getData")
+    public AccountOverviewPage acctOverview;
+
+    @Test (dataProvider = "getData", priority = 0)
     public void accountSummary_TC104(HashMap<String,String> input) throws InterruptedException {
 
         landingPage.loginApplication(input.get("username"),input.get("password"));
         Assert.assertTrue(landingPage.getLoginStatus().contains("Welcome"));
 
-        AccountOverviewPage acctOverview = landingPage.goToAcctOverviewPage();
+        acctOverview = landingPage.goToAcctOverviewPage();
         acctOverview.accountOverview();
         Assert.assertEquals(acctOverview.getAcctDetailsText(),"Account Details");
 
-        acctOverview.goToLogOut();
+        //acctOverview.goToLogOut();
+    }
+
+    @Test(groups={"Transfer"}, priority = 1, description = "TC_105 Transfer fund")
+    public void transferFund_TC105()
+    {
+        TransferFundPage transferFundPage = acctOverview.goToTransferFundPage();
+        transferFundPage.transferFund();
+        Assert.assertTrue(transferFundPage.transferStatus().contains("Transfer Complete!"));
+
+        transferFundPage.goToLogOut();
     }
 
     @DataProvider
