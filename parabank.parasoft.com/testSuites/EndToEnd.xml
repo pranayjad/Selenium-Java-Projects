@@ -7,7 +7,7 @@
     <test name="Registration and open account">
         <groups>
             <run>
-                <exclude name="NegativeScenario"/>
+                <!--<exclude name="NegativeScenario"/>-->
             </run>
         </groups>
         <classes>
@@ -17,7 +17,7 @@
     <test name="Login Validation">
         <groups>
             <run>
-                <!--<include name="HappyPath"></include>-->
+               <!--<include name="HappyPath"></include>-->
             </run>
         </groups>
         <classes>
