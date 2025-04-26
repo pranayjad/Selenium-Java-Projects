@@ -31,7 +31,8 @@ public class LandingPage extends AbstractComponent {
 
     By acctViewBy=By.xpath("//h1[contains(text(),'Accounts Overview')]");
 
-    @FindBy(css="div[id='rightPanel'] p")
+    //@FindBy(css="div[id='rightPanel'] p")
+    @FindBy(css="p.error")
     WebElement loginErrorMsg;
 
     public void loginApplication(String user, String pwd)

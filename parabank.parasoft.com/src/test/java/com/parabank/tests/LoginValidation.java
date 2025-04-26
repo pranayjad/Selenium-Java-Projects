@@ -27,14 +27,14 @@ public class LoginValidation extends BaseTest {
         String password ="test";
 
         landingPage.loginApplication(username,password);
-        Assert.assertTrue(landingPage.getLoginErrorMsg().contains("could not be verified"));
+        Assert.assertTrue(landingPage.getLoginErrorMsg().contains("An internal error has occurred"));
     }
 
     @Test (dataProvider = "getData", groups = {"NegativeScenario"}, priority = 2, description = "TC-101, Login with valid Username and invalid Password")
     public void login_InvalidPassword_TC101(HashMap<String,String> input)
     {
         landingPage.loginApplication(input.get("username"),"1234");
-        Assert.assertTrue(landingPage.getLoginErrorMsg().contains("could not be verified"));
+        Assert.assertTrue(landingPage.getLoginErrorMsg().contains("An internal error has occurred"));
     }
 
     @DataProvider

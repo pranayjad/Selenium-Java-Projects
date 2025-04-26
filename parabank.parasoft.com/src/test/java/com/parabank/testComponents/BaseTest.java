@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 public class BaseTest {
@@ -43,6 +44,14 @@ public class BaseTest {
                 ChromeOptions options = new ChromeOptions();
                 if(browserName.contains("headless"))
                     options.addArguments("headless");
+
+                options.addArguments("password-store=basic"); // to handle password manager box
+                //options.addArguments("--incognito");
+                //options.addArguments("--disable-web-security");
+                Map<String, Object> prefs = new HashMap<>();
+                prefs.put("credentials_enable_service", false);
+                prefs.put("profile.password_manager_enabled", false);
+                options.setExperimentalOption("prefs", prefs);
 
                 driver = new ChromeDriver(options);
                 driver.manage().window().setSize(new Dimension(1440,900));
