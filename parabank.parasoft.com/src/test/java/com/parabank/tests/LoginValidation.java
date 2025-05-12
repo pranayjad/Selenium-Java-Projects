@@ -11,7 +11,7 @@ import java.util.List;
 
 public class LoginValidation extends BaseTest {
 
-    @Test (groups = {"HappyPath"}, dataProvider = "getData", priority = 0, description = "TC-99, Login happy path test case")
+    @Test (groups = {"HappyPath"}, dataProvider = "getExcelData", priority = 0, description = "TC-99, Login happy path test case")
     public void login_TC99(HashMap<String,String> input) {
 
         landingPage.loginApplication(input.get("username"),input.get("password"));
@@ -27,19 +27,25 @@ public class LoginValidation extends BaseTest {
         String password ="test";
 
         landingPage.loginApplication(username,password);
-        Assert.assertTrue(landingPage.getLoginErrorMsg().contains("An internal error has occurred"));
+        Assert.assertTrue(landingPage.getLoginErrorMsg().contains("could not be verified"));
     }
 
     @Test (dataProvider = "getData", groups = {"NegativeScenario"}, priority = 2, description = "TC-101, Login with valid Username and invalid Password")
     public void login_InvalidPassword_TC101(HashMap<String,String> input)
     {
         landingPage.loginApplication(input.get("username"),"1234");
-        Assert.assertTrue(landingPage.getLoginErrorMsg().contains("An internal error has occurred"));
+        Assert.assertTrue(landingPage.getLoginErrorMsg().contains("could not be verified"));
     }
 
-    @DataProvider
+
     public Object [][] getData() throws IOException {
         List<HashMap<String,String>> mapData = getJsonDataToMap(System.getProperty("user.dir")+"//src//test//java//com//parabank//data//data.json");
         return new Object [][] {{mapData.get(0)}};
+    }
+
+    @DataProvider
+    public Object[][] getExcelData() throws IOException {
+       Object [][] data = getExcelDataToMap(System.getProperty("user.dir")+"//src//test//java//com//parabank//data//LoginData.xlsx","Sheet1");
+        return data;
     }
 }

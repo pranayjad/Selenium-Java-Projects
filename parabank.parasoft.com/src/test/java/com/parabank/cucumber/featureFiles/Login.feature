@@ -17,14 +17,14 @@ Feature: Login to ParaBank website
 
   Scenario Outline: TC-100 Login with invalid Username and valid Password
     When The user enters a invalid username <name> or password <password> clicks the Login
-    Then a "An internal error has occurred" error message should be displayed
+    Then a "could not be verified" error message should be displayed
     Examples:
       | name      | password |
       | TestUser10 | test |
 
   Scenario Outline: TC-101 Login with valid Username and invalid Password
     When The user enters a invalid username <name> or password <password> clicks the Login
-    Then a "An internal error has occurred" error message should be displayed
+    Then a "could not be verified" error message should be displayed
     Examples:
       | name      | password |
       | TestUser1 | test12 |
