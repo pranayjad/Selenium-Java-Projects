@@ -1,4 +1,4 @@
-package template.testComponents;
+package com.projectName.testComponents;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;

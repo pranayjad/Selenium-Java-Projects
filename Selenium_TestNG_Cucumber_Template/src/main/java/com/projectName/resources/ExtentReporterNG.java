@@ -1,4 +1,4 @@
-package template.resources;
+package com.projectName.resources;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
