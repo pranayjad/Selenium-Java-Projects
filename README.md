@@ -25,7 +25,6 @@ This is Selenium Java automation testing framework can be leveraged for any UI a
 ## 📁 Project Structure
 <img width="576" alt="image" src="https://github.com/user-attachments/assets/1a114fde-9a9c-44bd-a819-33f247a12bad" />
 
-
 Selenium_TestNG_Cucumber_Template/
 ├── pom.xml                          ← Maven build file
 ├── testSuites/
@@ -62,7 +61,6 @@ Selenium_TestNG_Cucumber_Template/
 │               │   └── Retry.java               ← Retry logic on failure
 │               └── tests/
 │                   └── Test1.java               ← Traditional TestNG test class
-
 
 📸 Reporting & Logs
 ✅ Extent Report: reports/ExtentReport.html
