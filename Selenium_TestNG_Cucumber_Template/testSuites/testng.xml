@@ -2,7 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true"
-          name="C:/Users/pranay_jadhav/IdeaProjects/Selenium-Java-Projects/Selenium_TestNG_Template/testSuites">
-        <classes/>
+          name="Scenario Name">
+        <classes>
+            <class name="com.projectName.tests.Test1"/>
+        </classes>
     </test>
 </suite>

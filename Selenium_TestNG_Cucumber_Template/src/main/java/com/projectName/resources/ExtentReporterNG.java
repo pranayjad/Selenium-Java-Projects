@@ -7,7 +7,7 @@ public class ExtentReporterNG {
 
     public static ExtentReports getReportObject()
     {
-        String reportPath=System.getProperty("user.dir")+"//reports//index.html";
+        String reportPath=System.getProperty("user.dir")+"//reports//ExtentReport.html";
         ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
 
         reporter.config().setReportName("Web Automation Result");

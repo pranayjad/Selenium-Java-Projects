@@ -32,7 +32,7 @@ public class BaseTest {
 
     public WebDriver initializeDriver() throws IOException {
         Properties prop = new Properties();
-        FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"//src//main//java//template//resources//GlobalData.properties");
+        FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"//src//main//java//com//projectName//resources//GlobalData.properties");
         prop.load(fis);
         String browserName= System.getProperty("browser")!=null ? System.getProperty("browser") :prop.getProperty("browser");
         // above ternary operator is used to get browser value from Maven commnad line -Dbrowser=firefox using System.getProperty("browser")
