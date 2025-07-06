@@ -3,15 +3,18 @@ Selenium project repository
 
 # 🛍️ Selenium TestNG - Cucumber Framework
 
-This is a real-time automation testing framework built to automate Amazon product search scenarios using:
+This is a Selenium Java automation testing framework can be leveraged for any UI automation testing:
 
+💻 Tech Stack:
+
+- ✅ Java 23
+- ✅ Maven default artifact template
 - ✅ Selenium WebDriver
 - ✅ Cucumber BDD (Gherkin syntax)
 - ✅ TestNG (as runner)
 - ✅ Apache POI for Excel data
 - ✅ Extent Reports with Screenshot Support
 - ✅ Retry Analyzer for flaky test handling
-- ✅ Tag-based test execution
 - ✅ GitHub Integration
 
 ![Java](https://img.shields.io/badge/Java-23+-brightgreen)
@@ -24,98 +27,57 @@ This is a real-time automation testing framework built to automate Amazon produc
 
 ## 📁 Project Structure
 
-Amazon Shopping/
+Selenium_TestNG_Cucumber_Template/
+├── pom.xml                          ← Maven build file
+├── testSuites/
+│   └── testng.xml                   ← TestNG suite configuration
+├── reports/
+│   ├── ExtentReport.html                   ← Extent report (output)
+│   ├── Cucumber.html                       ← Cucumber report (output)
+│   └── snapshot.png                        ← Error snapshot (output)
+├── src/
+│   ├── main/
+│   │   └── java/
+│   │       └── com/projectName/
+│   │           ├── abstractComponents/
+│   │           │   └── AbstractComponent.java   ← Reusable UI base components
+│   │           ├── pageobjects/
+│   │           │   └── PageObject.java          ← Page Object class(es)
+│   │           └── resources/
+│   │               ├── ExtentReporterNG.java    ← Extent report setup
+│   │               └── GlobalData.properties    ← Configuration file
+│   └── test/
+│       └── java/
+│           └── com/projectName/
+│               ├── cucumber/
+│               │   ├── TestNGTestRunner.java    ← Cucumber + TestNG runner
+│               │   └── test.feature             ← Gherkin feature file
+│               ├── data/
+│               │   ├── data.json                ← Test data (JSON)
+│               │   └── data.xlsx                ← Test data (Excel)
+│               ├── stepDefinition/
+│               │   └── StepDefinitionImpl.java  ← Step definitions (Cucumber)
+│               ├── testComponents/
+│               │   ├── BaseTest.java            ← Common setup/teardown
+│               │   ├── Listeners.java           ← TestNG listeners
+│               │   └── Retry.java               ← Retry logic on failure
+│               └── tests/
+│                   └── Test1.java               ← Traditional TestNG test class
 
-
-├── features/                   
-│   ├── AmazonSearch.feature
-│   └── AmazonSearchExcel.feature
-│
-
-├── stepdefinitions/           
-│   ├── SearchSteps.java
-│   └── SearchExcelSteps.java
-│
-
-├── hooks/                     
-│   ├── Hooks.java
-│   └── ExtentReporterHooks.java
-│
-
-├── utils/                     
-│   ├── ExcelUtil.java
-│   ├── ScreenshotUtil.java
-│   ├── StepLogger.java
-│   ├── ConfigReader.java
-│   └── RetryListener.java
-│
-
-├── testdata/                  
-│   └── AmazonSearchData.xlsx
-│
-
-├── reports/                   
-│   └── ExtentReport.html
-│
-
-├── screenshots/               
-│   └── (failure screenshots generated at runtime)
-│
-
-├── runner/                    
-│   └── TestNGCucumberRunner.java
-│
-
-├── testng.xml                 
-├── pom.xml                    
-└── README.md                  
-
-
-
----
-
-## 🧪 How to Execute
-
-### ▶️ From IDE (Eclipse/IntelliJ)
-- Right-click `testng.xml` → **Run As → TestNG Suite**
-
-### 🏷️ Tag Based Execution
-
-You can filter tests using tags in the runner class:
-```java
-tags = "@ExcelSearch"
 
 📸 Reporting & Logs
 ✅ Extent Report: reports/ExtentReport.html
-
-✅ Cucumber HTML: target/cucumber-reports/index.html
-
-✅ Failure Screenshots: screenshots/ScenarioName_Timestamp.png
+✅ Cucumber HTML: reports/Cucumber.html
+✅ Failure Screenshots: reports/snapshot.png
 
 📊 Data-Driven Testing
-✅ Excel file: testdata/AmazonSearchData.xlsx
+✅ Excel file: data/data.xlsx
+✅ JSON file: data/data.json
 
 ✅ Powered by: Apache POI
 
-✅ Scenario: AmazonSearchExcel.feature
+✅ Scenario: test.feature
 
-📌 Tags
-Tag	Description
-@ExcelSearch	Excel-driven test scenario
-
-@Smoke	Smoke tests
-@sanity Sanity tests
-
-💻 Tech Stack
-Layer	Technology
-Language	Java 23
-Automation Tool	Selenium WebDriver
-BDD Framework	Cucumber
-Runner	TestNG
-Build Tool	Maven
-Reports	Extent Reports, Cucumber HTML
-Data-Driven	Apache POI (Excel support)
-VCS	Git + GitHub
 
 👨‍💻 Author
 👤 Name: Pranay Jadhav
@@ -123,148 +85,7 @@ VCS	Git + GitHub
 🌐 GitHub: pranayjad
 
 📧 Email: pranayjad@gmail.com
-🔗 LinkedIn: 
 
 🔮 Future Enhancements
-✅ JSON Data Support
-
 ✅ Allure Reporting Integration
-
 ✅ Jenkins CI/CD Pipeline
-
-
-
-
-# 🛍️ Selenium TestNG - Cucumber Framework
-
-This is a real-time automation testing framework built to automate Amazon product search scenarios using:
-
-- ✅ Selenium WebDriver
-- ✅ Cucumber BDD (Gherkin syntax)
-- ✅ TestNG (as runner)
-- ✅ Apache POI for Excel data
-- ✅ Extent Reports with Screenshot Support
-- ✅ Retry Analyzer for flaky test handling
-- ✅ Tag-based test execution
-- ✅ GitHub Integration
-
-![Java](https://img.shields.io/badge/Java-23+-brightgreen)
-![Maven](https://img.shields.io/badge/Maven-Build-blue)
-![TestNG](https://img.shields.io/badge/TestNG-7.9-orange)
-![Cucumber](https://img.shields.io/badge/Cucumber-BDD-green)
-![Selenium](https://img.shields.io/badge/Selenium-WebDriver-yellow)
-
----
-
-## 📁 Project Structure
-
-Amazon Shopping/
-
-
-├── features/                   
-│   ├── AmazonSearch.feature
-│   └── AmazonSearchExcel.feature
-│
-
-├── stepdefinitions/           
-│   ├── SearchSteps.java
-│   └── SearchExcelSteps.java
-│
-
-├── hooks/                     
-│   ├── Hooks.java
-│   └── ExtentReporterHooks.java
-│
-
-├── utils/                     
-│   ├── ExcelUtil.java
-│   ├── ScreenshotUtil.java
-│   ├── StepLogger.java
-│   ├── ConfigReader.java
-│   └── RetryListener.java
-│
-
-├── testdata/                  
-│   └── AmazonSearchData.xlsx
-│
-
-├── reports/                   
-│   └── ExtentReport.html
-│
-
-├── screenshots/               
-│   └── (failure screenshots generated at runtime)
-│
-
-├── runner/                    
-│   └── TestNGCucumberRunner.java
-│
-
-├── testng.xml                 
-├── pom.xml                    
-└── README.md                  
-
-
-
----
-
-## 🧪 How to Execute
-
-### ▶️ From IDE (Eclipse/IntelliJ)
-- Right-click `testng.xml` → **Run As → TestNG Suite**
-
-### 🏷️ Tag Based Execution
-
-You can filter tests using tags in the runner class:
-```java
-tags = "@ExcelSearch"
-
-📸 Reporting & Logs
-✅ Extent Report: reports/ExtentReport.html
-
-✅ Cucumber HTML: target/cucumber-reports/index.html
-
-✅ Failure Screenshots: screenshots/ScenarioName_Timestamp.png
-
-📊 Data-Driven Testing
-✅ Excel file: testdata/AmazonSearchData.xlsx
-
-✅ Powered by: Apache POI
-
-✅ Scenario: AmazonSearchExcel.feature
-
-📌 Tags
-Tag	Description
-@ExcelSearch	Excel-driven test scenario
-
-@Smoke	Smoke tests
-@sanity Sanity tests
-
-💻 Tech Stack
-Layer	Technology
-Language	Java 23
-Automation Tool	Selenium WebDriver
-BDD Framework	Cucumber
-Runner	TestNG
-Build Tool	Maven
-Reports	Extent Reports, Cucumber HTML
-Data-Driven	Apache POI (Excel support)
-VCS	Git + GitHub
-
-👨‍💻 Author
-👤 Name: Pranay Jadhav
-
-🌐 GitHub: pranayjad
-
-📧 Email: pranayjad@gmail.com
-🔗 LinkedIn: 
-
-🔮 Future Enhancements
-✅ JSON Data Support
-
-✅ Allure Reporting Integration
-
-✅ Jenkins CI/CD Pipeline
-
-
-
